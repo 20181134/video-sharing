@@ -5,8 +5,7 @@
   </head>
   <body>
     <!-- Upload Page -->
-    <form action="video-output.php" method="post">
-      <enctype="multipart/form-data">
+    <form action="video-output.php" method="post" enctype="multipart/form-data">
       Title: <input type="text" name="title"><br>
       Video: <input type="file" name="video"><br>
       Uploader name: <input type="text" name="uploader">
