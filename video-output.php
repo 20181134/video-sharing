@@ -10,7 +10,7 @@
         if (!file_exists('upload')) {
           mkdir ('upload');
         }
-        $file='upload/'.basename($_FILES['video']['tmp_name']).'.jpg';
+        $file='upload/'.basename($_FILES['video']['tmp_name']);
         if (move_uploaded_file($_FILES['video']['tmp_name'], $file)) {
           echo 'Moved uploaded file to /upload';
           $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'admin', 'password');
@@ -32,7 +32,7 @@
         echo 'ERROR CODE: ', $_FILES['video']['error'];
       }
      ?>
-     <a href="http://localhost/GitHub/video-sharing/home.php">Back to Home</a>
-     <a href="http://localhost/GitHub/video-sharing/upload.php">Back to Upload</a>
+     <br><a href="http://localhost/GitHub/video-sharing/home.php">Back to Home</a>
+     <br><a href="http://localhost/GitHub/video-sharing/upload.php">Back to Upload</a>
    </body>
    </html>
