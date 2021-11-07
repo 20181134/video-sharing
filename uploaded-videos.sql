@@ -5,6 +5,7 @@ create database videos character set utf8 collate utf8_general_ci;
     use videos;
 
     create table list (
-      title varcher(50) not null,
-      uploader varcher(50) not null
+      title varchar(50) not null,
+      uploader varchar(50) not null,
+      uploaded_file varchar(50) not null
     );

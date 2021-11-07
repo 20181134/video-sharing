@@ -11,7 +11,6 @@
       Uploader name: <input type="text" name="uploader">
       <input type="submit" value="Upload">
     </form>
-    <p>You can only upload .mov or .mp4 file</p>
     <p>Title and uploader name must be within 50 characters</p>
   </body>
 </html>

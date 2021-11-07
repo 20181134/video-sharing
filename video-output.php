@@ -6,22 +6,28 @@
   <body>
     <!-- video-output.php -->
     <?php
-      $file='upload/'.basename($_FILES['video']['tmp_name']);
       if (is_uploaded_file($_FILES['video']['tmp_name'])) {
         if (!file_exists('upload')) {
           mkdir ('upload');
         }
+        $file='upload/'.basename($_FILES['video']['tmp_name']);
         if (move_uploaded_file($_FILES['video']['tmp_name'], $file)) {
-          $sql = "INSERT INTO videos (title, uploader) VALUES (:title, :uploader)";
-          $stmt = $dbh->prepare($sql);
-          $params = array(':title' => $_REQUEST['title'], ':uploader' => $_REQUEST['uploader']);
-          $stmt->execute($params);
-          echo $file, 'has been uploaded!';
+          echo 'Moved uploaded file to /upload';
+          $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'admin', 'password');
+          $sql=$pdo->prepare('insert into list values(?, ?, ?)');
+          if ($sql->execute([$_REQUEST['title'], $_REQUEST['uploader'], $_FILES['video']['tmp_name']])) {
+            echo '<br>', $file, ' has been uploaded!';
+          } else {
+            echo '<br>Could not add ', $file, ' to SQL database';
+          }
+
         } else {
           echo 'Could not upload ', $file;
         }
       } else {
-        echo $file, ' is not uploaded file';
+        echo $_FILES['video']['tmp_name'], ' is not uploaded file';
+        echo '<br>';
+        echo 'ERROR CODE: ', $_FILES['video']['error'];
       }
      ?>
    </body>
