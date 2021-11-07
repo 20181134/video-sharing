@@ -16,8 +16,7 @@
           var_dump(rename($file, $file.'.jpg'));
           $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'admin', 'password');
           $sql=$pdo->prepare('insert into list values(?, ?, ?)');
-          $filename=$_FILES['video']['tmp_name'].'.jpg';
-          // Last change
+          $filename=$file.'.jpg';
           if ($sql->execute([$_REQUEST['title'], $_REQUEST['uploader'], $filename])) {
             echo '<br>', $file, ' has been uploaded!';
           } else {
