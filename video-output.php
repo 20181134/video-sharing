@@ -15,7 +15,9 @@
           echo 'Moved uploaded file to /upload';
           $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'admin', 'password');
           $sql=$pdo->prepare('insert into list values(?, ?, ?)');
-          if ($sql->execute([$_REQUEST['title'], $_REQUEST['uploader'], $_FILES['video']['tmp_name'].'.jpg'])) {
+          $filename=$_FILES['video']['tmp_name'].'.jpg';
+          // Last change
+          if ($sql->execute([$_REQUEST['title'], $_REQUEST['uploader'], $filename])) {
             echo '<br>', $file, ' has been uploaded!';
           } else {
             echo '<br>Could not add ', $file, ' to SQL database';
@@ -30,5 +32,7 @@
         echo 'ERROR CODE: ', $_FILES['video']['error'];
       }
      ?>
+     <a href="http://localhost/GitHub/video-sharing/home.php">Back to Home</a>
+     <a href="http://localhost/GitHub/video-sharing/upload.php">Back to Upload</a>
    </body>
    </html>
