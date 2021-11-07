@@ -6,6 +6,7 @@
   <body>
     <!-- Upload Page -->
     <form action="video-output.php" method="post" enctype="multipart/form-data">
+      <h1>NOTE: Please upload .jpg or .png file</h1>
       Title: <input type="text" name="title"><br>
       Video: <input type="file" name="video"><br>
       Uploader name: <input type="text" name="uploader">
