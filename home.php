@@ -4,14 +4,14 @@
     <title>Home</title>
   </head>
   <body>
-    <a href="http://localhost/video-sharing/upload.php">Upload</a>
+    <a href="http://localhost/GitHub/video-sharing/upload.php">Upload</a>
     <hr>
     <h1>Home</h1>
     <h2>Uploaded videos</h2>
     <?php
       $pdo=new PDO ('mysql:host=localhost;dbname=videos;charset=utf8', 'admin', 'password');
       foreach ($pdo->query('select * from list') as $row) {
-        echo '<a href="http://localhost/video-sharing/upload/', $row['uploaded_file'], '">';
+        echo '<a href="http://localhost/GitHub/video-sharing/upload/', $row['uploaded_file'], '">';
         echo $row['title'], ' Uploaded by: ';
         echo $row['uploader'];
         echo '</a><br>';
