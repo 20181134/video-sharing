@@ -20,9 +20,8 @@
           if ($sql->execute([$_REQUEST['title'], $_REQUEST['uploader'], $filename])) {
             echo '<br>', $file, ' has been uploaded!';
           } else {
-            echo '<br>Could not add ', $file, ' to SQL database';
+            echo '<br>Could not upload ', $file, ' to SQL database';
           }
-
         } else {
           echo 'Could not upload ', $file;
         }
