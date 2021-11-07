@@ -13,7 +13,7 @@
         $file='upload/'.basename($_FILES['video']['tmp_name']);
         if (move_uploaded_file($_FILES['video']['tmp_name'], $file)) {
           echo 'Moved uploaded file to /upload';
-          var_dump(rename('upload/'.$_FILES['video']['tmp_name'], 'upload/'.$_FILES['video']['tmp_name']));
+          var_dump(rename($file, $file.'.jpg'));
           $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'admin', 'password');
           $sql=$pdo->prepare('insert into list values(?, ?, ?)');
           $filename=$_FILES['video']['tmp_name'].'.jpg';
