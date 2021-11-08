@@ -14,7 +14,7 @@
         if (move_uploaded_file($_FILES['video']['tmp_name'], $file)) {
           echo 'Moved uploaded file to /upload';
           var_dump(rename($file, $file.'.jpg'));
-          $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'admin', 'password');
+          $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'root', 'root');
           $sql=$pdo->prepare('insert into list values(?, ?, ?)');
           $filename=$file.'.jpg';
           if ($sql->execute([$_REQUEST['title'], $_REQUEST['uploader'], $filename])) {
