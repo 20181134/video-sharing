@@ -28,6 +28,7 @@
             echo '<br>Could not upload ', $file, ' to SQL database';
             echo '<br>Title: ', $_REQUEST['title'], '<br>';
             echo 'Uploader: ', $_REQUEST['uploader'], '<br>';
+            print_r ($sql -> errorInfo());
             } 
           } catch (PDOException $e) {
             // SQLに接続できなかった場合
