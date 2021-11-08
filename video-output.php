@@ -21,9 +21,13 @@
             $filename=$file.'.jpg';
             if ($sql->execute([$_REQUEST['title'], $_REQUEST['uploader'], $filename])) {
                 echo '<br>', $file, ' has been uploaded!';
+                echo 'Title: ', $_REQUEST['title'], '<br>';
+                echo 'Uploader: ', $_REQUEST['uploader'], '<br>';
             } else {
               // SQLにデータを追加できなかった場合
             echo '<br>Could not upload ', $file, ' to SQL database';
+            echo 'Title: ', $_REQUEST['title'], '<br>';
+            echo 'Uploader: ', $_REQUEST['uploader'], '<br>';
             } 
           } catch (PDOException $e) {
             // SQLに接続できなかった場合
