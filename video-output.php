@@ -16,17 +16,17 @@
           var_dump(rename($file, $file.'.jpg'));
           try {
             // SQLに接続
-            $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'root', 'root');
+            $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'admin', 'password');
             $sql=$pdo->prepare('insert into list values(?, ?, ?)');
             $filename=$file.'.jpg';
             if ($sql->execute([$_REQUEST['title'], $_REQUEST['uploader'], $filename])) {
                 echo '<br>', $file, ' has been uploaded!';
-                echo 'Title: ', $_REQUEST['title'], '<br>';
+                echo '<br>Title: ', $_REQUEST['title'], '<br>';
                 echo 'Uploader: ', $_REQUEST['uploader'], '<br>';
             } else {
               // SQLにデータを追加できなかった場合
             echo '<br>Could not upload ', $file, ' to SQL database';
-            echo 'Title: ', $_REQUEST['title'], '<br>';
+            echo '<br>Title: ', $_REQUEST['title'], '<br>';
             echo 'Uploader: ', $_REQUEST['uploader'], '<br>';
             } 
           } catch (PDOException $e) {
