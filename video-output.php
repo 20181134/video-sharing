@@ -14,18 +14,27 @@
         if (move_uploaded_file($_FILES['video']['tmp_name'], $file)) {
           echo 'Moved uploaded file to /upload';
           var_dump(rename($file, $file.'.jpg'));
-          $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'root', 'root');
-          $sql=$pdo->prepare('insert into list values(?, ?, ?)');
-          $filename=$file.'.jpg';
-          if ($sql->execute([$_REQUEST['title'], $_REQUEST['uploader'], $filename])) {
-            echo '<br>', $file, ' has been uploaded!';
-          } else {
+          try {
+            // SQLに接続
+            $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'root', 'root');
+            $sql=$pdo->prepare('insert into list values(?, ?, ?)');
+            $filename=$file.'.jpg';
+            if ($sql->execute([$_REQUEST['title'], $_REQUEST['uploader'], $filename])) {
+                echo '<br>', $file, ' has been uploaded!';
+            } else {
+              // SQLにデータを追加できなかった場合
             echo '<br>Could not upload ', $file, ' to SQL database';
-          }
-        } else {
+            } 
+          } catch (PDOException $e) {
+            // SQLに接続できなかった場合
+              echo 'Cannot connect to SQL';
+            }
+          } else {
+            // ファイルをuploadに移動できなかった場合
           echo 'Could not upload ', $file;
         }
       } else {
+        // is_uploaded_fileがfalseを返した場合
         echo $_FILES['video']['tmp_name'], ' is not uploaded file';
         echo '<br>';
         echo 'ERROR CODE: ', $_FILES['video']['error'];
