@@ -45,7 +45,7 @@
         echo 'ERROR CODE: ', $_FILES['video']['error'];
       }
     ?>
-    <br><a href="http://localhost/GitHub/video-sharing/home.php">Back to Home</a>
-    <br><a href="http://localhost/GitHub/video-sharing/upload.php">Back to Upload</a>
+    <br><a href="./home.php">Back to Home</a>
+    <br><a href="./upload.php">Back to Upload</a>
   </body>
 </html>
