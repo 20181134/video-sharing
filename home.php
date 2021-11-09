@@ -11,7 +11,7 @@
     <?php
       $pdo=new PDO ('mysql:host=localhost;dbname=videos;charset=utf8', 'admin', 'password');
       foreach ($pdo->query('select * from list') as $row) {
-        echo '<a href="http://localhost/GitHub/video-sharing/upload/', $row['uploaded_file'], '">';
+        echo '<a href="http://localhost/GitHub/video-sharing/', $row['uploaded_file'], '">';
         echo $row['title'], ' Uploaded by: ';
         echo $row['uploader'];
         echo '</a><br>';
