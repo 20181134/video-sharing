@@ -16,7 +16,7 @@
           var_dump(rename($file, $file.'.jpg'));
           try {
             // SQLに接続
-            $pdo=new PDO('mysql:host=localhost;dbnaame=videos;charset=utf8', 'admin', 'password');
+            $pdo=new PDO('mysql:host=localhost;dbname=videos;charset=utf8', 'admin', 'password');
             $sql=$pdo->prepare('insert into list values(?, ?, ?)');
             $filename=$file.'.jpg';
             if ($sql->execute([$_REQUEST['title'], $_REQUEST['uploader'], $filename])) {
