@@ -29,7 +29,7 @@
             echo '<br>Title: ', $_REQUEST['title'], '<br>';
             echo 'Uploader: ', $_REQUEST['uploader'], '<br>';
             print_r ($sql -> errorInfo());
-            } 
+            }
           } catch (PDOException $e) {
             // SQLに接続できなかった場合
               echo 'Cannot connect to SQL';
@@ -44,8 +44,8 @@
         echo '<br>';
         echo 'ERROR CODE: ', $_FILES['video']['error'];
       }
-     ?>
-     <br><a href="http://localhost/GitHub/video-sharing/home.php">Back to Home</a>
-     <br><a href="http://localhost/GitHub/video-sharing/upload.php">Back to Upload</a>
-   </body>
-   </html>
+    ?>
+    <br><a href="http://localhost/GitHub/video-sharing/home.php">Back to Home</a>
+    <br><a href="http://localhost/GitHub/video-sharing/upload.php">Back to Upload</a>
+  </body>
+</html>
