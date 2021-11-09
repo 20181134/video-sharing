@@ -7,7 +7,7 @@
     <a href="http://localhost/GitHub/video-sharing/upload.php">Upload</a>
     <hr>
     <h1>Home</h1>
-    <h2>Uploaded videos</h2>
+    <h2>Uploaded Pictures</h2>
     <?php
       $pdo=new PDO ('mysql:host=localhost;dbname=videos;charset=utf8', 'admin', 'password');
       foreach ($pdo->query('select * from list') as $row) {
