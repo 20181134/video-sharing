@@ -2,9 +2,10 @@
   <head>
     <meta charset="utf-8">
     <title>Home</title>
+    <link rel="stylesheet" href="stylesheet.css">
   </head>
   <body>
-    <a href="home.php">Upload</a>
+    <a href="upload.php">Upload</a>
     <hr>
     <h1>Home</h1>
     <h2>Uploaded Pictures</h2>
