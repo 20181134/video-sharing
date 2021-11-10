@@ -11,10 +11,12 @@
     <?php
       $pdo=new PDO ('mysql:host=localhost;dbname=videos;charset=utf8', 'admin', 'password');
       foreach ($pdo->query('select * from list') as $row) {
+        echo '<div class="pics">';
         echo '<a href="./', $row['uploaded_file'], '">';
-        echo $row['title'], ' Uploaded by: ';
+        echo '<img src="', $row['uploaded_file'], '"><br>';
+        echo $row['title'], '<br> Uploaded by: ';
         echo $row['uploader'];
-        echo '</a><br>';
+        echo '</a></div>';
       }
     ?>
   </body>
